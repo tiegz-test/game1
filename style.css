@@ -1,0 +1,161 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0d0d1a;
+  color: #e8dfc8;
+  font-family: 'Georgia', serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+#app {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Top bar */
+#top-bar {
+  background: #1a1a2e;
+  border: 1px solid #444;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+#location-name { color: #f0c060; font-weight: bold; }
+
+/* Scene panel */
+#scene-panel {
+  background: #111122;
+  border: 1px solid #333;
+  padding: 16px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+#log {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e8dfc8;
+}
+
+/* Main area */
+#main-area {
+  display: flex;
+  gap: 12px;
+}
+
+/* Party panel */
+#party-panel {
+  background: #111122;
+  border: 1px solid #333;
+  padding: 12px;
+  flex: 1;
+}
+
+#party-panel h3 {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.member {
+  margin-bottom: 10px;
+}
+
+.member.dead { opacity: 0.35; }
+
+.member-name { font-size: 0.9rem; font-weight: bold; }
+.member-level { font-size: 0.75rem; color: #aaa; margin-left: 6px; }
+
+.hp-bar {
+  background: #333;
+  height: 6px;
+  border-radius: 3px;
+  margin: 4px 0;
+  overflow: hidden;
+}
+
+.hp-fill {
+  background: #4caf50;
+  height: 100%;
+  transition: width 0.25s;
+}
+
+.member.dead .hp-fill { background: #555; }
+
+.member-hp { font-size: 0.7rem; color: #aaa; }
+
+/* Enemy panel */
+#enemy-panel {
+  background: #1a0a0a;
+  border: 1px solid #553;
+  padding: 12px;
+  flex: 1;
+}
+
+#enemy-panel h3 {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+#enemy-name { font-size: 0.95rem; font-weight: bold; color: #e06060; }
+
+#enemy-hp-bar {
+  background: #333;
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+#enemy-hp-fill {
+  background: #c0392b;
+  height: 100%;
+  transition: width 0.25s;
+}
+
+/* Action panel */
+#action-panel {
+  background: #111122;
+  border: 1px solid #333;
+  padding: 12px;
+}
+
+#buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: #1e1e3a;
+  border: 1px solid #555;
+  color: #e8dfc8;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background: #2a2a50;
+  border-color: #f0c060;
+  color: #f0c060;
+}

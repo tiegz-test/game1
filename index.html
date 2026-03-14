@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quest of Three</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="top-bar">
+      <span id="location-name">???</span>
+    </div>
+
+    <div id="main-area">
+      <div id="scene-panel">
+        <p id="log">Your journey begins.</p>
+      </div>
+
+      <div id="party-panel">
+        <h3>Party</h3>
+        <div id="party-list"></div>
+      </div>
+    </div>
+
+    <div id="action-panel">
+      <div id="buttons"></div>
+    </div>
+
+    <div id="enemy-panel" style="display:none">
+      <h3 id="enemy-name"></h3>
+      <div id="enemy-hp-bar"><div id="enemy-hp-fill"></div></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
