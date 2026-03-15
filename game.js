@@ -43,6 +43,36 @@ const TOWNS = [
   },
 ];
 
+// ── Map ───────────────────────────────────────────────────────────────────────
+// Tiles: _ west/east wall  | north/south wall  . path  ^ mountain  ~ water
+// Towns are marked by their first letter; @ = player position
+
+const MAP_ROWS = [
+  '____________________',
+  '|^^. S . . .~~~    |',
+  '|^^. | . . .~~     |',
+  '|... | . . ..~     |',
+  '|... I . . ...     |',
+  '|... | . . ...     |',
+  '|... A . . .^^     |',
+  '|... . . . .^^     |',
+  '|__________________|',
+];
+
+// {row, col} of each town marker in MAP_ROWS (matches TOWNS index)
+const TOWN_POS = [
+  { row: 6, col: 5 },  // Ashvale  'A'
+  { row: 4, col: 5 },  // Ironhold 'I'
+  { row: 1, col: 5 },  // Skyspire 'S'
+];
+
+function renderMap() {
+  const rows = MAP_ROWS.map(r => Array.from(r));
+  const pos = TOWN_POS[state.townIndex];
+  if (pos) rows[pos.row][pos.col] = '@';
+  document.getElementById('map').textContent = rows.map(r => r.join('')).join('\n');
+}
+
 // ── State ─────────────────────────────────────────────────────────────────────
 
 const state = {
@@ -115,6 +145,7 @@ function showMenu() {
   renderEnemy(null);
   document.getElementById('party-list').innerHTML = '';
   log('Three heroes stand against the darkness threatening the realm.');
+  renderMap();
   renderButtons([{ label: 'New Game', fn: () => { resetGame(); showTown(); } }]);
 }
 
@@ -124,6 +155,7 @@ function showTown() {
   renderLocation();
   renderEnemy(null);
   log(town.description);
+  renderMap();
   renderParty();
 
   const btns = [

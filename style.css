@@ -129,6 +129,19 @@ body {
   transition: width 0.25s;
 }
 
+/* Map */
+#map {
+  background: #0a0a18;
+  border: 1px solid #333;
+  padding: 12px 16px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #6a9a7a;
+  white-space: pre;
+  overflow-x: auto;
+}
+
 /* Action panel */
 #action-panel {
   background: #111122;
