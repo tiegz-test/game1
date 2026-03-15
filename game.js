@@ -46,7 +46,7 @@ const TOWNS = [
 // ── State ─────────────────────────────────────────────────────────────────────
 
 const state = {
-  screen: 'town',   // 'town' | 'battle' | 'levelup' | 'gameover' | 'win'
+  screen: 'menu',   // 'menu' | 'town' | 'battle' | 'levelup' | 'gameover' | 'win'
   townIndex: 0,
   enemy: null,
   levelupQueue: [],  // party members waiting to level up
@@ -108,6 +108,15 @@ function renderLocation() {
 }
 
 // ── Screens ───────────────────────────────────────────────────────────────────
+
+function showMenu() {
+  state.screen = 'menu';
+  document.getElementById('location-name').textContent = 'Quest of Three';
+  renderEnemy(null);
+  document.getElementById('party-list').innerHTML = '';
+  log('Three heroes stand against the darkness threatening the realm.');
+  renderButtons([{ label: 'New Game', fn: () => { resetGame(); showTown(); } }]);
+}
 
 function showTown() {
   state.screen = 'town';
@@ -201,7 +210,7 @@ function enemyAttack(halved) {
   if (aliveParty().length === 0) {
     log('The party has fallen — your journey ends here.');
     state.screen = 'gameover';
-    renderButtons([{ label: 'Try Again', fn: resetGame }]);
+    renderButtons([{ label: 'Try Again', fn: showMenu }]);
   }
 }
 
@@ -287,4 +296,4 @@ PARTY.forEach(c => { PARTY_BASE[c.name] = { atk: c.atk, maxHp: c.maxHp }; });
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
-showTown();
+showMenu();
